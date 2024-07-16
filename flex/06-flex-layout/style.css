@@ -1,14 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+/* Pretty sure this is entirely a flex-direction: column exercise.. right? Maybe lmao? */
+
 body {
   height: 100vh;
   margin: 0;
   overflow: hidden;
   font-family: Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* Is the above not supposed to go here..? It has to be either here or .footer */
+  /* Yeah, I think the above is it for this CSS */
 }
 
-img {
+.header {
+  display: flex;
+  justify-content: space-between; /* Need this to space apart the two sides */
+  padding: 16px;
+  /* gap: 16px; no need for this here or in .footer. ul's gap takes care of this by itself */
+}
+
+ul { /* Needed to make it so header and footer links are next to each other and have spacing like in the example output */
+  display: flex;
+  gap: 12px; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+} /* Yeah, no need for li individually. ul contains li, so giving it its values does the same thing and is better */
+
+li {
+  /* list-style: none; Done to get rid of list bullet points */
+}
+
+a { /* Thought ul covered this too at first, but nope. We need it */
+  text-decoration: none; /* Done to get rid of ugly underline link or whatever it's called */
+}
+
+.content { /* Definitely needed. Contains img, input, and buttons. Hmm.. */
+  display: flex;
+  flex: 1; /* Unsure what this does but it's from the solution */
+  flex-direction: column; /* Needed to make everything exactly centered */
+  justify-content: center;
+  align-items: center; /* No need to do this stuff element by element. Doing it in the container containing everything gave same effect */
+  gap: 16px; /* Can space children apart with this which makes sense. No need to space them apart element by element */
+}
+
+img { /* Lemme see how I can center this. Something tells me it's all about .content above.. */
   width: 600px;
+  margin-bottom: 12px; /* To make it look like example output */
 }
 
 button {
@@ -16,11 +55,50 @@ button {
   border: none;
   border-radius: 8px;
   background: #eee;
+  padding: 12px; /* Needed to make them look like the example output */
+ /* margin-top: 16px; Needed to make them look like the example output */
 }
 
-input {
+.buttons { /* I think the padding is it for the above edits, the centering and gaps and stuff are with this */
+  /* display: flex;
+  justify-content: center; no need for these after all. .content handles all of the formatting
+  margin-top: 16px; Needed to make them look like the example output */
+}
+
+input { /* Why'd they name this and the below the same thing..? Okay.. */
   border: 1px solid #ddd;
   border-radius: 16px;
   padding: 8px 24px;
   width: 400px;
 }
+
+.input { /* Similar situation to button and .buttons above. This is needed for the centering and stuff */
+  /* display: flex;
+  justify-content: center; */
+} /* Nah, this is all useless. .content handles all of this */
+
+.footer {
+  background: #eeeeee; /* Done based off of the instructions */
+  /* margin-top: auto; To keep footer at the bottom of the page at all times */
+  /* No need for the above. flex: 1 up in .content does this as well. Unsure why it's impacting .footer, though. This isn't in .content's div.. */
+  display: flex;
+  justify-content: space-between; /* Need this to space apart the two sides like .header above */
+  padding: 16px; /* This and the above padding in .header are 16px because that's the padding Odin Project likes */
+  /* gap: 16px; This and the above gap in .header are 16px because of the same reasoning as the above */
+}
+
+/*
+The header is at the top of the page, the footer is at the bottom, and they stay in place if you resize your screen. (DONE.. I think? The
+                                                                                                                     the footer is good
+                                                                                                                     to go, at least)
+The header and footer have padding. (DONE)
+The links in the header and footer are pushed to either side. (DONE)
+There is space between the links in the header and footer. (DONE.. I think? Sure seems like it)
+The footer has a light gray background (#eeeeee). (DONE)
+The logo, input and buttons are centered in the screen. (DONE)
+The buttons have an appropriate amount of padding. (DONE)
+There is space between the logo, input and buttons. (DONE)
+Remove bullet points in lists. (DONE)
+Get rid of link decoration under text. (DONE)
+"To stick the footer to the bottom you will need to use flex and change the direction to column." (DONE)
+*/
