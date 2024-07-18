@@ -2,46 +2,96 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* This and the above are for list item #1 and #8 */
 }
 
 .header {
   height: 72px;
   background: darkmagenta;
   color: white;
+  font-size: 32px;
+  font-weight: 900; /* Both this and the above edit are needed to match the example output */
+  display: flex;
+  align-items: center;
+  padding-left: 16px /* Needed for list item #7 */
 }
 
 .footer {
   height: 72px;
   background: #eee;
   color: darkmagenta;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* This and the above two edits are needed for list item #9 */
+}
+
+.content {
+  display: flex;
+  flex: auto;
 }
 
 .sidebar {
   width: 300px;
   background: royalblue;
   box-sizing: border-box;
+  flex-shrink: 0; /* List item #11 */
+  padding: 16px; /* For list item #13 */
+  /* display: flex;
+  flex-wrap: wrap; */ /* I'll keep these here for now, but I don't think they're needed */
+}
+
+ul { /* Need this to make it so the sidebar links are positioned exactly the same way they are positioned in the example output */
+  margin: 0;
+  padding: 0;
+}
+
+li { /* Instead of ul. Does it matter, though..? */
+  list-style: none;
+  /* padding: 12px; */
+  margin-bottom: 16px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px; /* All of this is for list item #12 */
+}
+
+.container { /* Definitely edits needed for this new div */
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 32px;
+  flex-wrap: wrap; /* List item #3 */
+  /* Definitely the above, but I don't know where they are supposed to go exactly.. to-do list item #3 */
+  padding: 48px; /* Needed for list item #14 */
+  /* justify-content: center; Thought this was for #15, but nope. It's not doing anything */
 }
 
 .card {
   border: 1px solid #eee;
   box-shadow: 2px 4px 16px rgba(0,0,0,.06);
   border-radius: 4px;
+  padding: 16px;
+  width: 300px;
 }
 
 /*
-You will need to change the flex-direction to push the footer down.
-You will need to add some divs as containers to get things to line up correctly.
-flex-wrap will help get the cards aligned correctly.
-Make sure you define how much space the cards should take up, in order for flex-wrap to work as intended.
-The number of cards lined up in that section will change based on the width of your screen, so don't stress about getting exactly a 2x3 or 3x2 grid.
-The header text is size 32px and weight 900.
-The header text is vertically centered and 16px from the edge of the screen.
-The footer is pushed to the bottom of the screen (the footer may go below the bottom of the screen if the content of the 'cards' section overflows and/or if your screen is shorter).
-The footer text is centered horizontally and vertically.
-The sidebar and cards take up all available space above the footer.
-The sidebar is 300px wide (and it doesn't shrink).
-The sidebar links are size 24px, are white, and do not have the underline text decoration.
-The sidebar has 16px padding.
-There is 48px padding around the 'cards' section.
-The cards are arranged horizontally, but wrap to multiple lines when they run out of room on the page.
+1. You will need to change the flex-direction to push the footer down. (DONE)
+2. You will need to add some divs as containers to get things to line up correctly. (DONE)
+3. flex-wrap will help get the cards aligned correctly. (DONE..?)
+4. Make sure you define how much space the cards should take up, in order for flex-wrap to work as intended. (DONE..? I think?)
+5. The number of cards lined up in that section will change based on the width of your screen, so don't stress about getting exactly a 2x3 or 3x2 grid.
+6. The header text is size 32px and weight 900. (DONE)
+7. The header text is vertically centered and 16px from the edge of the screen. (DONE)
+8. The footer is pushed to the bottom of the screen (the footer may go below the bottom of the screen if the content of the 'cards' section overflows and/or if your screen is shorter). (DONE)
+9. The footer text is centered horizontally and vertically. (DONE)
+10. The sidebar and cards take up all available space above the footer. (This is flex-grow, no? It should be DONE then thanks to .content..)
+11. The sidebar is 300px wide (and it doesn't shrink). (DONE)
+12. The sidebar links are size 24px, are white, and do not have the underline text decoration. (DONE)
+13. The sidebar has 16px padding. (DONE)
+14. There is 48px padding around the 'cards' section. (DONE)
+15. The cards are arranged horizontally, but wrap to multiple lines when they run out of room on the page.
+16. Get rid of bullet point thingies. (DONE. Why isn't this a thing to do when it clearly is based off of the example output?)
+17. Make it so the navigation links look like the example output. Yet another thing not listed..
 */
